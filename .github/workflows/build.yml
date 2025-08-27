@@ -32,10 +32,14 @@ jobs:
       - name: Build with CMake
         run: cmake --build build --config Debug
 
-      - name: Upload executables
+      - name: Upload debug artifacts
         uses: actions/upload-artifact@v4
         with:
           name: xenonrecomp-debug-artifacts
           path: |
-            build/xenonrecomp.exe
-            build/xenonanalyse.exe
+            build/XenonRecomp/Debug/xenonrecomp.exe
+            build/XenonAnalyse/Debug/xenonanalyse.exe
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+
