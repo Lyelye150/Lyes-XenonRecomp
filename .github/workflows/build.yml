@@ -24,7 +24,7 @@ jobs:
           version: 18.1.8
 
       - name: Check Ninja version
-       run: ninja --version
+        run: ninja --version
   
       - name: Configure CMake
         run: cmake -S . -B build -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
