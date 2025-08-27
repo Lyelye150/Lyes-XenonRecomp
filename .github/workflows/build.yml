@@ -1,4 +1,4 @@
-name: Build XenonRecomp (Debug, ClangCL)
+name: Build XenonRecomp
 
 on:
   push:
@@ -20,12 +20,12 @@ jobs:
         with:
           cmakeVersion: 3.20.0
 
-      - name: Setup VS2019 with ClangCL
+      - name: Setup VS2022 Developer Command Prompt
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
-          vsversion: '16.11'
-          toolset: ClangCL
+          vsversion: '17.0'
+          toolset: host=x64
 
       - name: Configure CMake
         run: cmake -S . -B build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug
