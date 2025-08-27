@@ -1,4 +1,4 @@
-name: Build XenonRecomp
+name: Build XenonRecomp (Debug, VS2022)
 
 on:
   push:
@@ -25,7 +25,6 @@ jobs:
         with:
           arch: x64
           vsversion: '17.0'
-          toolset: host=x64
 
       - name: Configure CMake
         run: cmake -S . -B build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug
