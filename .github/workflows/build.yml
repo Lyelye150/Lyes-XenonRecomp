@@ -1,4 +1,4 @@
-name: Build XenonRecomp (Debug, LLVM)
+name: Build XenonRecomp (Debug, ClangCL)
 
 on:
   push:
@@ -13,23 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: true  # <-- ensures third-party libs are included
+          submodules: true
 
       - name: Install CMake
         uses: lukka/get-cmake@v3.29.6
         with:
           cmakeVersion: 3.20.0
 
-      - name: Install LLVM/Clang
-        uses: egor-tensin/setup-clang@v1
+      - name: Setup MSVC with ClangCL
+        uses: ilammy/msvc-dev-cmd@v1
         with:
-          version: 18.1.8
-
-      - name: Check Ninja version
-        run: ninja --version
+          arch: x64
+          toolset: ClangCL
 
       - name: Configure CMake
-        run: cmake -S . -B build -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
+        run: cmake -S . -B build -G "NMake Makefiles" -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build with CMake
         run: cmake --build build --config Debug
