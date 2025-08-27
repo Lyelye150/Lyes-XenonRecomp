@@ -23,9 +23,9 @@ jobs:
         with:
           version: 18.1.8
 
-      - name: Install Ninja
-        uses: lukka/get-ninja@v1
-
+      - name: Check Ninja version
+       run: ninja --version
+  
       - name: Configure CMake
         run: cmake -S . -B build -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
 
