@@ -20,10 +20,11 @@ jobs:
         with:
           cmakeVersion: 3.20.0
 
-      - name: Setup MSVC with ClangCL
+      - name: Setup VS2019 with ClangCL
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
+          vs-version: '16.11'
           toolset: ClangCL
 
       - name: Configure CMake
