@@ -37,9 +37,9 @@ jobs:
         with:
           name: xenonrecomp-debug-artifacts
           path: |
-            XenonRecomp/Debug/*.exe
-            XenonAnalyse/Debug/*.exe
-          if-no-files-found: warn
+            /a/Lyes-XenonRecomp/Lyes-XenonRecomp/build/XenonRecomp/Debug/XenonRecomp.exe
+            /a/Lyes-XenonRecomp/Lyes-XenonRecomp/build/XenonAnalyse/Debug/XenonRecomp.exe
+          if-no-files-found: error
           compression-level: 6
           overwrite: false
 
