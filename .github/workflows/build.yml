@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: true  # <-- ensures third-party libs are included
 
       - name: Install CMake
         uses: lukka/get-cmake@v3.29.6
@@ -25,7 +27,7 @@ jobs:
 
       - name: Check Ninja version
         run: ninja --version
-  
+
       - name: Configure CMake
         run: cmake -S . -B build -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
 
