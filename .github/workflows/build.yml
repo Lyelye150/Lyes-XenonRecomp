@@ -37,9 +37,8 @@ jobs:
         with:
           name: xenonrecomp-debug-artifacts
           path: |
-            build/XenonRecomp/Debug/xenonrecomp.exe
-            build/XenonAnalyse/Debug/xenonanalyse.exe
+            build/XenonRecomp/Debug/*.exe
+            build/XenonAnalyse/Debug/*.exe
           if-no-files-found: warn
           compression-level: 6
           overwrite: false
-
