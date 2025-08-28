@@ -30,3 +30,12 @@ add_subdirectory(${XENONUTILS_ROOT})
 if (${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
     add_subdirectory(XenonTests)
 endif()
+
+include(CPack)
+
+set(CPACK_GENERATOR "ZIP")
+set(CPACK_PACKAGE_NAME "XenonRecomp")
+set(CPACK_PACKAGE_VERSION "0.1.0")
+
+install(TARGETS xenonrecomp RUNTIME DESTINATION .)
+install(TARGETS xenonanalyse RUNTIME DESTINATION .)
