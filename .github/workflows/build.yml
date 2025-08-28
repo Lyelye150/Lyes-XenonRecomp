@@ -32,14 +32,11 @@ jobs:
       - name: Build with CMake
         run: cmake --build build --config Debug
 
-      - name: Upload debug artifacts
+      - name: Package with CPack
+        run: cmake --build build --target package --config Debug
+
+      - name: Upload packaged artifact
         uses: actions/upload-artifact@v4
         with:
-          name: xenonrecomp-debug-artifacts
-          path: |
-            D:/a/Lyes-XenonRecomp/Lyes-XenonRecomp/build/XenonRecomp/Debug/XenonRecomp.exe
-            D:/a/Lyes-XenonRecomp/Lyes-XenonRecomp/build/XenonAnalyse/Debug/XenonRecomp.exe
-          if-no-files-found: error
-          compression-level: 6
-          overwrite: false
-
+          name: xenonrecomp-debug-package
+          path: build/*.zip
