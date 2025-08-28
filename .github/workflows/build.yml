@@ -33,10 +33,13 @@ jobs:
         run: cmake --build build --config Debug
 
       - name: Package with CPack
-        run: cmake --build build --target package --config Debug
+        run: cmake --build build --config Debug --target package
 
       - name: Upload packaged artifact
         uses: actions/upload-artifact@v4
         with:
           name: xenonrecomp-debug-package
           path: build/*.zip
+          if-no-files-found: error
+          compression-level: 6
+          overwrite: true
