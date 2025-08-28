@@ -32,10 +32,10 @@ jobs:
       - name: Build with CMake
         run: cmake --build build --config Debug
 
-      - name: Package with CPack
-        run: cmake --build build --config Debug --target package
+      - name: Run CPack (generate installer/archive)
+        run: cmake --build build --target package
 
-      - name: Upload packaged artifact
+      - name: Upload debug package
         uses: actions/upload-artifact@v4
         with:
           name: xenonrecomp-debug-package
