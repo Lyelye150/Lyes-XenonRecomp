@@ -34,6 +34,9 @@ endif()
 install(TARGETS XenonRecomp RUNTIME DESTINATION .)
 install(TARGETS XenonAnalyse RUNTIME DESTINATION .)
 
+install(FILES ${CMAKE_BINARY_DIR}/XenonAnalyse/Debug/LibXenonAnalyse.lib
+        DESTINATION .)
+
 include(CPack)
 
 set(CPACK_GENERATOR "ZIP")
