@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: xenonrecomp-debug-package
-          path: build/*.zip
+          path: build/*.exe
           if-no-files-found: error
           compression-level: 6
           overwrite: true
